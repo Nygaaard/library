@@ -17,7 +17,9 @@ namespace library.Models
         [NotMapped]
         [Display(Name = "Bild")]
         public IFormFile? ImageFile { get; set; }
+        [Display(Name = "Författare")]
         public int AuthorId { get; set; }
+        [Display(Name = "Författare")]
         public AuthorModel? Author { get; set; }
     }
 }

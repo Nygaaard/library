@@ -14,14 +14,15 @@
         <nav>
             <ul>
                 <li><a asp-controller="Home" asp-action="Index">Startsidan</a></li>
-                <li><a href="#">Böcker</a></li>
-                <li><a href="#">Författare</a></li>
+                <li><a asp-controller="Book" asp-action="Index">Böcker</a></li>
+                <li><a asp-controller="Author" asp-action="Index">Författare</a></li>
             </ul>
         </nav>
     </header>
     <main>
         @RenderBody()
     </main>
+    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

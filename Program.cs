@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Activate MVC
 builder.Services.AddControllersWithViews();
 
+//Use SQLite with connection string
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
 options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
