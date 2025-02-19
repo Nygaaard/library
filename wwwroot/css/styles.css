@@ -52,11 +52,12 @@ header ul li a:hover {
     color: #ffcc00;
 }
 
-.book-header {
+.book-header-with-btn {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 2rem ;
 }
+
 
 .book-header p a {
     color: #000;
@@ -103,6 +104,11 @@ header ul li a:hover {
     font-size: 1em;
     color: #555;
 }
+
+.author-actions {
+    padding: 0.5rem;
+}
+
 .book-actions {
     margin-top: 15px;
     display: flex;
@@ -128,7 +134,7 @@ header ul li a:hover {
 
 .btn-primary {
     background: #007bff;
-    padding: 12px 18px;
+    padding: 0.5rem 1rem;
     font-size: 1.1em;
     border-radius: 8px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
@@ -138,6 +144,7 @@ header ul li a:hover {
 .btn-primary:hover {
     background: #0056b3;
     transform: scale(1.02);
+    cursor: pointer;
 }
 
 .btn-edit {
@@ -150,6 +157,11 @@ header ul li a:hover {
 
 .btn-delete {
     background: #dc3545;
+}
+.add-author-btn {
+    padding: 0.6rem 0.8rem;
+    background: #007bff;
+    border-radius: 10px;
 }
 
 .form-group {
@@ -164,4 +176,21 @@ header ul li a:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 1em;
+}
+.book-header h2, h4, .book-header {
+    padding: 0.5rem;
+}
+
+.back-link {
+    color: #000;
+    font-size: 1.2em;
+}
+.back-link:hover {
+    color: #817f7f;
+}
+
+.author-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

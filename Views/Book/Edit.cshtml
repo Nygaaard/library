@@ -4,10 +4,12 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<div class="book-header">
+    <h2>Uppdatera en bok</h2>
+    <hr />
+    <h4>Använd gränssnittet nedan</h4>
+</div>
 
-<h4>BookModel</h4>
-<hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit" enctype="multipart/form-data">
@@ -41,7 +43,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="back-link">Back to List</a>
 </div>
 
 @section Scripts {

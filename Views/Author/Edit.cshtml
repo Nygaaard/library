@@ -4,10 +4,11 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>AuthorModel</h4>
-<hr />
+<div class="book-header">
+    <h2>Uppdatera en författare</h2>
+    <hr />
+    <h4>Använd gränssnittet nedan</h4>
+</div>
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
@@ -26,9 +27,11 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="back-link">Back to List</a>
 </div>
 
 @section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
 }
