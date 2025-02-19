@@ -12,7 +12,6 @@ namespace library.Models
         [Required]
         [Display(Name = "Utgivningsår")]
         public int ReleaseYear { get; set; }
-        [Display(Name = "Bild")]
         public string? ImageName { get; set; }
         [NotMapped]
         [Display(Name = "Bild")]
