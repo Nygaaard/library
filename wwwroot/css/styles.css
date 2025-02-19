@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,19 +15,20 @@ body {
     color: #333;
 }
 
+/* Header Styles */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 2rem;
-    min-height: 100px;
+    min-height: 120px;
     background-color: #0044cc;
     color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.31);
-    border-radius: 3px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
 }
 
-header h1 a{
+header h1 a {
     font-size: 1.1em;
     color: #000;
     text-decoration: none;
@@ -47,5 +49,105 @@ header ul li a {
 }
 
 header ul li a:hover {
-    color: #964719;
+    color: #ffcc00;
+}
+
+.book-header {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem ;
+}
+
+.book-header p a {
+    color: #000;
+    font-size: 1.3em;
+}
+
+.book-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+    background-color: rgb(199, 192, 186);
+    gap: 20px;
+    padding: 1rem;
+}
+.book-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+.book-card:hover {
+    transform: translateY(-5px);
+}
+
+.book-image img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.book-title {
+    font-size: 1.4em;
+    margin: 1rem 0;
+    color: #0044cc;
+}
+.book-author,
+.book-year {
+    font-size: 1em;
+    color: #555;
+}
+.book-actions {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+.btn {
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn:hover {
+    filter: brightness(1.2);
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background: #007bff;
+    padding: 12px 18px;
+    font-size: 1.1em;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background: #0056b3;
+    transform: scale(1.02);
+}
+
+.btn-edit {
+    background: #007bff;
+}
+
+.btn-details {
+    background: #28a745;
+}
+
+.btn-delete {
+    background: #dc3545;
 }

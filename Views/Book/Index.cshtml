@@ -4,50 +4,33 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div class="book-header">
+    <h1>Böcker</h1>
+    <p>
+        <a asp-action="Create" class="btn btn-primary add-btn">Create New</a>
+    </p>
+</div>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReleaseYear)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Author)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReleaseYear)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<div class="book-list">
+    @foreach (var item in Model)
+    {
+        <article class="book-card">
+            <div class="book-image">
+                <a href="images/@item.ImageName">
+                    <img src="images/@item.ImageName" alt="Bild på @item.Title">
+                </a>
+                <div class="book-info">
+                    <h2 class="book-title">@item.Title</h2>
+                    <p class="book-author">Författare: @item.Author?.Name</p>
+                    <p class="book-year">Utgivningsår: @item.ReleaseYear</p>
+                    <div class="book-actions">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-edit">Redigera</a>
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-details">Detaljer</a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-delete">Ta bort</a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    }
+</div>
