@@ -115,7 +115,7 @@ namespace library.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseYear,ImageName,AuthorId")] BookModel bookModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseYear,ImageFile,ImageName,AuthorId")] BookModel bookModel)
         {
             if (id != bookModel.Id)
             {
@@ -126,6 +126,23 @@ namespace library.Controllers
             {
                 try
                 {
+                    if (bookModel.ImageFile != null)
+                    {
+                        // Create new filename
+                        string fileName = Path.GetFileNameWithoutExtension(bookModel.ImageFile.FileName);
+                        string extension = Path.GetExtension(bookModel.ImageFile.FileName);
+
+                        bookModel.ImageName = fileName = fileName.Replace(" ", String.Empty) + DateTime.Now.ToString("yymmssfff") + extension;
+
+                        string path = Path.Combine(wwwRootPath + "/images", fileName);
+
+                        // Store in file system
+                        using (var fileStream = new FileStream(path, FileMode.Create))
+                        {
+                            await bookModel.ImageFile.CopyToAsync(fileStream);
+                        }
+                    }
+
                     _context.Update(bookModel);
                     await _context.SaveChangesAsync();
                 }
@@ -145,6 +162,8 @@ namespace library.Controllers
             ViewData["AuthorId"] = new SelectList(_context.Authors, "Id", "Name", bookModel.AuthorId);
             return View(bookModel);
         }
+
+
 
         // GET: Book/Delete/5
         public async Task<IActionResult> Delete(int? id)
